@@ -6,7 +6,7 @@ function LoadingScreen() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1800);
+    }, 1200);
 
     return () => clearTimeout(timer);
   }, []);
@@ -14,44 +14,37 @@ function LoadingScreen() {
   if (!loading) return null;
 
   return (
-    <div className="fixed inset-0 z-[999] bg-[#0D1117] flex items-center justify-center">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0A0F14]">
       <div className="text-center">
 
-        <div className="flex items-center gap-3">
-
-  <div className="relative w-14 h-14 flex items-center justify-center">
-    <div className="absolute inset-0 rounded-xl border border-[#00C37A]/40 rotate-45"></div>
-
-    <span className="relative text-xl font-black italic">
-      <span className="text-[#00C37A]">A</span>
-      <span className="text-[#D4AF37]">R</span>
-    </span>
-  </div>
-
-  <div>
-    <h3 className="text-xl font-extrabold">
-      ABIDUR <span className="text-[#00C37A]">RAHMAN</span>
-    </h3>
-
-    <p className="text-[#D4AF37] text-[9px] tracking-[4px] mt-1">
-      RAFI
-    </p>
-  </div>
-
-</div>
-
-        <h2 className="text-2xl font-bold mt-5">
-          Abidur Rahman <span className="text-[#00C37A]">Rafi</span>
-        </h2>
-
-        <p className="text-gray-500 mt-2">
-          Loading Portfolio...
-        </p>
-
-        <div className="w-48 h-1 bg-white/10 rounded-full mt-6 overflow-hidden">
-          <div className="h-full w-1/2 bg-[#00C37A] animate-[loading_1.5s_ease-in-out_infinite]"></div>
+        {/* AR Logo */}
+        <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl border border-[#00D084]/30 bg-[#111820] shadow-[0_0_40px_rgba(0,208,132,0.12)]">
+          <span className="text-3xl font-black italic">
+            <span className="text-[#00D084]">A</span>
+            <span className="text-[#D4AF37]">R</span>
+          </span>
         </div>
 
+        {/* Name */}
+        <h2 className="mt-6 text-xl font-black tracking-wide">
+          ABIDUR{" "}
+          <span className="text-[#00D084]">
+            RAHMAN
+          </span>
+        </h2>
+
+        <p className="mt-2 text-[10px] font-bold tracking-[4px] text-[#D4AF37]">
+          RAFI
+        </p>
+
+        {/* Loading Bar */}
+        <div className="mx-auto mt-7 h-1 w-48 overflow-hidden rounded-full bg-white/10">
+          <div className="h-full w-1/2 animate-[loading_1.2s_ease-in-out_infinite] rounded-full bg-gradient-to-r from-[#00D084] to-[#00A8FF]" />
+        </div>
+
+        <p className="mt-4 text-xs text-slate-600">
+          Loading Portfolio...
+        </p>
       </div>
     </div>
   );

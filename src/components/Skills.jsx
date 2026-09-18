@@ -1,54 +1,70 @@
 function Skills() {
-  const skills = [
+  const skillGroups = [
     {
-      name: "HTML",
-      level: 95,
-      icon: "🌐",
-      color: "from-orange-500 to-red-500",
+      number: "01",
+      title: "Frontend Development",
+      description:
+        "Creating responsive and interactive interfaces with modern frontend technologies.",
+      skills: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS"],
+      color: "emerald",
     },
     {
-      name: "CSS",
-      level: 90,
-      icon: "🎨",
-      color: "from-blue-500 to-cyan-400",
+      number: "02",
+      title: "Backend & Web",
+      description:
+        "Working with JavaScript-based backend technologies and modern web application architecture.",
+      skills: ["Node.js", "Express.js", "REST API", "JSON", "Next.js"],
+      color: "blue",
     },
     {
-      name: "JavaScript",
-      level: 85,
-      icon: "⚡",
-      color: "from-yellow-400 to-orange-400",
+      number: "03",
+      title: "AI & Digital Technology",
+      description:
+        "Exploring AI-powered tools, automation and technology-driven digital solutions.",
+      skills: ["AI Tools", "AI Automation", "Prompt Engineering", "Digital Solutions"],
+      color: "gold",
     },
     {
-      name: "React",
-      level: 80,
-      icon: "⚛️",
-      color: "from-cyan-400 to-blue-500",
-    },
-    {
-      name: "Next.js",
-      level: 70,
-      icon: "▲",
-      color: "from-gray-300 to-white",
-    },
-    {
-      name: "Node.js",
-      level: 70,
-      icon: "🟢",
-      color: "from-green-400 to-emerald-500",
-    },
-    {
-      name: "AI",
-      level: 75,
-      icon: "🤖",
-      color: "from-purple-500 to-blue-500",
-    },
-    {
-      name: "Digital Marketing",
-      level: 80,
-      icon: "📈",
-      color: "from-emerald-400 to-cyan-400",
+      number: "04",
+      title: "Digital Growth",
+      description:
+        "Combining technology, content and digital marketing to support online growth.",
+      skills: [
+        "Digital Marketing",
+        "Content Strategy",
+        "Social Media",
+        "Business Growth",
+      ],
+      color: "cyan",
     },
   ];
+
+  const colorMap = {
+    emerald: {
+      text: "text-[#00D084]",
+      border: "hover:border-[#00D084]/30",
+      bg: "bg-[#00D084]/10",
+      dot: "bg-[#00D084]",
+    },
+    blue: {
+      text: "text-[#00A8FF]",
+      border: "hover:border-[#00A8FF]/30",
+      bg: "bg-[#00A8FF]/10",
+      dot: "bg-[#00A8FF]",
+    },
+    gold: {
+      text: "text-[#D4AF37]",
+      border: "hover:border-[#D4AF37]/30",
+      bg: "bg-[#D4AF37]/10",
+      dot: "bg-[#D4AF37]",
+    },
+    cyan: {
+      text: "text-cyan-400",
+      border: "hover:border-cyan-400/30",
+      bg: "bg-cyan-400/10",
+      dot: "bg-cyan-400",
+    },
+  };
 
   return (
     <section
@@ -56,119 +72,114 @@ function Skills() {
       className="relative overflow-hidden bg-[#0A0F14] px-5 py-24 text-white md:px-10"
     >
       {/* Background Glow */}
-      <div className="absolute -left-40 top-20 h-80 w-80 rounded-full bg-[#00D084]/10 blur-[120px]" />
-      <div className="absolute -right-40 bottom-20 h-80 w-80 rounded-full bg-[#00A8FF]/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -right-40 top-10 h-96 w-96 rounded-full bg-[#00A8FF]/5 blur-[130px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
 
-        {/* Heading */}
-        <div className="mx-auto mb-16 max-w-3xl text-center">
+        {/* Header */}
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-bold uppercase tracking-[4px] text-[#00D084]">
+            My Expertise
+          </p>
 
-          <span className="text-xs font-bold tracking-[4px] text-[#00D084]">
-            MY SKILLS
-          </span>
-
-          <h2 className="mt-4 text-4xl font-black leading-tight md:text-6xl">
-            My{" "}
-            <span className="bg-gradient-to-r from-[#00D084] via-[#00A8FF] to-[#D4AF37] bg-clip-text text-transparent">
-              Expertise
+          <h2 className="mt-4 text-3xl font-black sm:text-4xl md:text-5xl">
+            Skills &{" "}
+            <span className="bg-gradient-to-r from-[#00D084] to-[#00A8FF] bg-clip-text text-transparent">
+              Technologies
             </span>
           </h2>
 
-          <p className="mt-5 leading-7 text-slate-400">
-            Technologies and skills I use to create modern,
-            scalable and high-performance digital experiences.
+          <p className="mt-5 text-sm leading-7 text-slate-400 md:text-base">
+            Technologies and areas I am currently working with and developing
+            through practical projects.
           </p>
-
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Skill Cards */}
+        <div className="mt-14 grid gap-5 md:grid-cols-2">
+          {skillGroups.map((group) => {
+            const colors = colorMap[group.color];
 
-          {skills.map((skill) => (
-            <div
-              key={skill.name}
-              className="group rounded-2xl border border-white/10 bg-[#111820]/70 p-6 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-[#00D084]/40 hover:bg-[#111820]"
-            >
-
-              {/* Icon + Name */}
-              <div className="flex items-center justify-between">
-
-                <div className="flex items-center gap-3">
-
-                  <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${skill.color} text-xl shadow-lg transition duration-500 group-hover:scale-110`}
-                  >
-                    {skill.icon}
-                  </div>
-
-                  <div>
-                    <h3 className="font-bold">
-                      {skill.name}
-                    </h3>
-
-                    <p className="text-xs text-slate-500">
-                      Professional Skill
-                    </p>
-                  </div>
-
-                </div>
-
-                <span className="text-sm font-bold text-[#00D084]">
-                  {skill.level}%
+            return (
+              <article
+                key={group.number}
+                className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-[#111820]/70 p-7 backdrop-blur-xl transition duration-500 hover:-translate-y-1 ${colors.border}`}
+              >
+                {/* Decorative Number */}
+                <span
+                  className={`absolute -right-3 -top-8 text-8xl font-black opacity-[0.035] ${colors.text}`}
+                >
+                  {group.number}
                 </span>
 
-              </div>
+                <div className="relative">
 
-              {/* Progress Bar */}
-              <div className="mt-6 h-2 overflow-hidden rounded-full bg-white/5">
+                  {/* Number */}
+                  <div className="flex items-center gap-3">
+                    <span className={`text-xs font-black ${colors.text}`}>
+                      {group.number}
+                    </span>
 
-                <div
-                  className={`h-full rounded-full bg-gradient-to-r ${skill.color} transition-all duration-1000 group-hover:shadow-[0_0_15px_rgba(0,208,132,0.4)]`}
-                  style={{
-                    width: `${skill.level}%`,
-                  }}
-                />
+                    <span className="h-px w-10 bg-white/10" />
+                  </div>
 
-              </div>
+                  {/* Title */}
+                  <h3 className="mt-6 text-xl font-bold">
+                    {group.title}
+                  </h3>
 
-            </div>
-          ))}
+                  {/* Description */}
+                  <p className="mt-3 text-sm leading-6 text-slate-500">
+                    {group.description}
+                  </p>
 
+                  {/* Skills */}
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {group.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className={`rounded-lg border border-white/10 ${colors.bg} px-3 py-2 text-xs font-semibold text-slate-300 transition duration-300 group-hover:border-white/15`}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
 
-        {/* Bottom Tech Stack */}
-        <div className="mt-16 rounded-3xl border border-white/10 bg-[#111820]/50 p-8 backdrop-blur-xl">
+        {/* Currently Learning */}
+        <div className="mt-10 rounded-3xl border border-white/10 bg-gradient-to-r from-[#111820]/80 to-[#0D141B]/80 p-7 backdrop-blur-xl">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
 
-          <div className="text-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[3px] text-[#D4AF37]">
+                Currently Learning
+              </p>
 
-            <p className="text-xs font-bold tracking-[3px] text-slate-500">
-              CURRENTLY LEARNING
-            </p>
+              <h3 className="mt-3 text-xl font-bold">
+                Always learning. Always building.
+              </h3>
 
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <p className="mt-2 max-w-xl text-sm leading-6 text-slate-500">
+                Continuously improving my React, Next.js, Node.js, AI and
+                modern web development skills through hands-on projects.
+              </p>
+            </div>
 
-              {[
-                "React",
-                "Next.js",
-                "Node.js",
-                "Express.js",
-                "REST API",
-                "Git & GitHub",
-                "AI Tools",
-              ].map((tech) => (
+            <div className="flex flex-wrap gap-2 md:max-w-sm md:justify-end">
+              {["React", "Next.js", "Node.js", "AI", "APIs"].map((item) => (
                 <span
-                  key={tech}
-                  className="rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm text-slate-300 transition duration-300 hover:border-[#00D084]/40 hover:bg-[#00D084]/10 hover:text-[#00D084]"
+                  key={item}
+                  className="rounded-full border border-[#00D084]/20 bg-[#00D084]/5 px-4 py-2 text-xs font-semibold text-[#00D084]"
                 >
-                  {tech}
+                  {item}
                 </span>
               ))}
-
             </div>
-
           </div>
-
         </div>
 
       </div>

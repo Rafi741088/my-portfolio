@@ -9,50 +9,27 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import LoadingScreen from "./components/LoadingScreen";
-import ScrollReveal from "./components/ScrollReveal";
 
 function App() {
   return (
-    <div className="bg-[#0D1117] min-h-screen">
-
+    <div className="min-h-screen bg-[#0A0F14] text-white">
       <LoadingScreen />
 
       <Navbar />
 
       <main>
-
         <Hero />
-
-        <ScrollReveal>
-          <About />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <Skills />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <Services />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <Projects />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <Journey />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <Contact />
-        </ScrollReveal>
-
+        <About />
+        <Skills />
+        <Services />
+        <Projects />
+        <Journey />
+        <Contact />
       </main>
 
       <Footer />
 
       <ScrollToTop />
-
     </div>
   );
 }
