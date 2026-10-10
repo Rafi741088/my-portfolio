@@ -76,7 +76,7 @@ export default function AdsterraAds() {
       {adUnits.map((unit) => (
         <div
           key={unit.id}
-          className="w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] p-2"
+          className={`w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] p-2 ${unit.width === 728 ? "hidden md:block" : ""}`}
         >
           <p className="mb-2 text-center text-xs tracking-wide text-white/45">
             Advertisement
