@@ -9,14 +9,13 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import LoadingScreen from "./components/LoadingScreen";
+import AdsterraAds from "./components/AdsterraAds";
 
 function App() {
   return (
     <div className="min-h-screen bg-[#0A0F14] text-white">
       <LoadingScreen />
-
       <Navbar />
-
       <main>
         <Hero />
         <About />
@@ -25,10 +24,9 @@ function App() {
         <Projects />
         <Journey />
         <Contact />
+        <AdsterraAds />
       </main>
-
       <Footer />
-
       <ScrollToTop />
     </div>
   );
